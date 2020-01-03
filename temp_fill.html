@@ -6,12 +6,15 @@
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
   <script>
     var clickDo = function(param){
       alert(param);
-      if (Toaster != null) {
-      Toaster.postMessage(param);
-      }
+      wx.miniProgram.navigateTo({url: '/pages/lab/lab'})
+      wx.miniProgram.postMessage({ data: 'foo' })
+      // if (Toaster != null) {
+      // Toaster.postMessage(param);
+      // }
       // if(wechatApp){
       //   //Sdk postMessage(xx)
       // }else if(){

@@ -11,7 +11,9 @@
     var clickDo = function(param){
       alert(param);
       wx.miniProgram.postMessage({ data: 'foo' })
-      wx.miniProgram.navigateTo({url: 'pages/lab/lab'})
+      wx.miniProgram.navigateBack({
+        delta: 1
+    })
       // if (Toaster != null) {
       // Toaster.postMessage(param);
       // }
@@ -24,12 +26,12 @@
       // }
       //这里是打开逻辑 判断当前是android iOS 小程序 带参执行不同的逻辑
     }
-    wx.miniProgram.navigateBack({
-        delta: 1
-    })
-    wx.miniProgram.postMessage({
-        data: 'foo'
-    })
+    // wx.miniProgram.navigateBack({
+    //     delta: 1
+    // })
+    // wx.miniProgram.postMessage({
+    //     data: 'foo'
+    // })
 
     var iKnow = function(){
       alert('我知道了');

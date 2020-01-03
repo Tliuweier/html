@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
   <title>Bootstrap 实例</title>
   <meta charset="utf-8">
@@ -10,8 +10,8 @@
   <script>
     var clickDo = function(param){
       alert(param);
-      wx.miniProgram.navigateTo({url: '/pages/lab/lab'})
       wx.miniProgram.postMessage({ data: 'foo' })
+      wx.miniProgram.navigateTo({url: 'pages/lab/lab'})
       // if (Toaster != null) {
       // Toaster.postMessage(param);
       // }

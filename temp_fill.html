@@ -12,7 +12,7 @@
       alert(param);
       wx.miniProgram.postMessage({ data: 'foo' })
       wx.miniProgram.navigateTo({
-        url:'../newView/newView'
+        url:'../newView/newView?carInfo='+JSON.stringify({ data: 'foo' })
       })
       // if (Toaster != null) {
       // Toaster.postMessage(param);

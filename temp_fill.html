@@ -11,7 +11,7 @@
     var clickDo = function(param){
       alert(param);
       wx.miniProgram.postMessage({ data: 'foo' })
-      wx.miniProgram.navigateTo({
+      wx.miniProgram.navigateBack({
         url:'../newView/newView?carInfo='+JSON.stringify({ data: 'foo' })
       })
       // if (Toaster != null) {

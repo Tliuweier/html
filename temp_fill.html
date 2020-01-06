@@ -11,7 +11,7 @@
     var clickDo = function(param){
       alert(param);
       wx.miniProgram.postMessage({ data: 'foo' })
-      wx.miniProgram.navigateBack({
+      wx.miniProgram.navigateTo({
         url:'../newView/newView?carInfo='+JSON.stringify({ data: 'foo' })
       })
       // if (Toaster != null) {
@@ -29,6 +29,7 @@
 
     var iKnow = function(){
       alert('我知道');
+      wx.miniProgram.navigateBack()
       //
     }
 

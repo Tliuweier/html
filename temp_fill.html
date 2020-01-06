@@ -28,7 +28,9 @@
     }
 
     var iKnow = function(){
-      alert('我知道了');
+      wx.miniProgram.navigateBack({
+        delta: 1
+      })
       //
     }
 

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script type='text/javascript' src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type='text/javascript' src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+</head>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+    }
+</style>
+
+<body>
+    <div style=" width: 100%;height: calc(100vh);display: flex;flex-direction: column;justify-content: center;align-content: center;text-align: center;padding-top:50px;background-image: url('http://10.40.2.1:8080/image/attachment/202001/735F707FA5DD703232B7413CE6DBDCB3.jpg');">
+        <div style="text-align:center;font-size:36px;font-weight: bold;color: #fff;">双11疯狂购物节活动</div>
+        
+        <div id="qrDiv" style="display: none;"></div>
+        <div id="qrcode" style="width:200px; height:200px; margin:15px auto;padding: 5px;"></div> 
+        <div style="color: #fff;">华为科技有限公司</div>
+        <div style="color: #fff;">活动时间：2020/01/04-2020/01/05</div>
+    </div>
+    
+</body>
+<script type="text/javascript">
+    let scanUrl = "${scanUrl}"
+    jQuery('#qrDiv').qrcode({
+        width: 200,
+        height: 200,
+        correctLevel:3,
+        text: scanUrl
+    });
+    var mycanvas1=document.getElementsByTagName('canvas')[0];
+    //将转换后的img标签插入到html中  
+    var img=convertCanvasToImage(mycanvas1); 
+     $('#qrcode').append(img);//imagQrDiv表示你要插入的容器id
+
+   //从 canvas 提取图片 image  
+   function convertCanvasToImage(canvas) {  
+    //新Image对象，可以理解为DOM  
+    var image = new Image();  
+    // canvas.toDataURL 返回的是一串Base64编码的URL，当然,浏览器自己肯定支持  
+        // 指定格式 PNG  
+    image.src = canvas.toDataURL("image/png");  
+        return image;  
+    } 
+
+    //获取请求参数值
+    function getQueryString(name) {
+    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+        return unescape(r[2]);
+    }
+    return null; 
+     }
+
+    //中文编码格式转换
+    function utf16to8(str) {
+        var out, i, len, c;
+        out = "";
+        len = str.length;
+        for (i = 0; i < len; i++) {
+            c = str.charCodeAt(i);
+            if ((c >= 0x0001) && (c <= 0x007F)) {
+                out += str.charAt(i);
+            } else if (c > 0x07FF) {
+                out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+            } else {
+                out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+            }
+        }
+        return out;
+    } 
+</script>
+</html>

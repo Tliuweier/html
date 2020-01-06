@@ -11,8 +11,8 @@
     var clickDo = function(param){
       alert(param);
       wx.miniProgram.postMessage({ data: 'foo' })
-      wx.miniProgram.navigateBack({
-        url:'pages/index/index'
+      wx.miniProgram.navigateTo({
+        url:'pages/newView/newView'
       })
       // if (Toaster != null) {
       // Toaster.postMessage(param);

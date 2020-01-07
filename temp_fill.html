@@ -17,9 +17,7 @@
       })
     }
     let smallPro = false;
-
     wx.miniProgram.getEnv(function(res) {
-      console.log(res.miniprogram) // true
       if(res.miniprogram){
         smallPro=true;
       }else{ 
@@ -28,7 +26,7 @@
     });
     var iKnow = function(){
       if(smallPro){
-          wx.miniProgram.postMessage({data:'我知道了'})
+          wx.miniProgram.postMessage({data:'http://www.baidu.com'})
           wx.miniProgram.reLaunch({
             url:'/pages/index1/index1?type=1'
           });

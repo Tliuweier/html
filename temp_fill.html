@@ -36,7 +36,7 @@
     var goVote = function(){
       if(smallPro){
         wx.miniProgram.postMessage({data:'去播种！'})
-          wx.miniProgram.navigateTo({
+          wx.miniProgram.reLaunch({
             url:'/pages/getVotes/getVotes'
           });
       }

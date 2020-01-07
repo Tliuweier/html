@@ -26,7 +26,6 @@
       // }
       //这里是打开逻辑 判断当前是android iOS 小程序 带参执行不同的逻辑
     }
-
     var iKnow = function(){
       wx.miniProgram.getEnv(function(res){
         console.log(res)
@@ -42,8 +41,23 @@
     }
 
     var goVote = function(){
-      alert('去投票');
       //
+      wx.miniProgram.getEnv(function(res){
+        console.log(res)
+        if(res.miniprogram){
+          //小程序
+          wx.miniProgram.postMessage({data:'我知道了'})
+          wx.miniProgram.navigateTo({
+            url:'/pages/testView/testView',
+                success: function(){
+                  console.log('success')
+                },
+                fail: function(){
+                  console.log('跳转回小程序的页面fail');
+                },
+          });
+        }
+      })
     }
   </script>
 </head>

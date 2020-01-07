@@ -40,19 +40,27 @@
     var iKnow = function(){
       if(smallPro){
         //小程序
-        wx.miniProgram.postMessage({data:'我知道了'})
-          wx.miniProgram.navigateBack({
-            delta: 1
-          })
+          wx.miniProgram.postMessage({data:'我知道了'})
+          // wx.miniProgram.navigateBack({
+          //   delta: 1
+          // })
+          wx.miniProgram.navigateTo({
+            url:'/pages/testView/testView?type=1',
+                success: function(){
+                  console.log('success')
+                },
+                fail: function(){
+                  console.log('跳转回小程序的页面fail');
+                },
+          });
       }
     }
 
     var goVote = function(){
-      //
       if(smallPro){
         wx.miniProgram.postMessage({data:'去播种！'})
           wx.miniProgram.navigateTo({
-            url:'/pages/testView/testView',
+            url:'/pages/testView/testView?type=2',
                 success: function(){
                   console.log('success')
                 },

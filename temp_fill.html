@@ -28,8 +28,16 @@
     }
 
     var iKnow = function(){
-      alert('我知道');
-      wx.miniProgram.navigateBack()
+      wx.miniProgram.getEnv(function(res){
+        console.log(res)
+        if(res.miniprogram){
+          //小程序
+          wx.miniProgram.postMessage({data:'我知道了'})
+          wx.miniProgram.navigateBack({
+            url:'../newView/newView?carInfo='+JSON.stringify({data:'我知道了'})
+          })
+        }
+      })
       //
     }
 

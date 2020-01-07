@@ -15,17 +15,6 @@
       wx.miniProgram.navigateBack({
         url:'../newView/newView?carInfo='+JSON.stringify({ data: 'foo' })
       })
-      // if (Toaster != null) {
-      // Toaster.postMessage(param);
-      // }
-      // if(wechatApp){
-      //   //Sdk postMessage(xx)
-      // }else if(){
-
-      // }else if(){
-
-      // }
-      //这里是打开逻辑 判断当前是android iOS 小程序 带参执行不同的逻辑
     }
     let smallPro = false;
 
@@ -39,19 +28,9 @@
     });
     var iKnow = function(){
       if(smallPro){
-        //小程序
           wx.miniProgram.postMessage({data:'我知道了'})
-          // wx.miniProgram.navigateBack({
-          //   delta: 1
-          // })
-          wx.miniProgram.navigateTo({
-            url:'/pages/testView/testView?type=1',
-                success: function(){
-                  console.log('success')
-                },
-                fail: function(){
-                  console.log('跳转回小程序的页面fail');
-                },
+          wx.miniProgram.reLaunch({
+            url:'/pages/index1/index1?type=1'
           });
       }
     }
@@ -60,13 +39,7 @@
       if(smallPro){
         wx.miniProgram.postMessage({data:'去播种！'})
           wx.miniProgram.navigateTo({
-            url:'/pages/testView/testView?type=2',
-                success: function(){
-                  console.log('success')
-                },
-                fail: function(){
-                  console.log('跳转回小程序的页面fail');
-                },
+            url:'/pages/getVotes/getVotes'
           });
       }
     }

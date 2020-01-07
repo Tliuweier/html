@@ -34,7 +34,7 @@
           //小程序
           wx.miniProgram.postMessage({data:'我知道了'})
           wx.miniProgram.navigateBack({
-            url:'../newView/newView?carInfo='+JSON.stringify({data:'我知道了'})
+            url:'/pages/newView/newView?carInfo='+JSON.stringify({data:'我知道了'})
           })
         }
       })

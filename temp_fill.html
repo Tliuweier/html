@@ -15,7 +15,6 @@
       wx.miniProgram.navigateBack({
         delta: 1
       })
-      
     }
     let smallPro = false;
     wx.miniProgram.getEnv(function(res) {
@@ -28,8 +27,8 @@
     var iKnow = function(){
       if(smallPro){
           wx.miniProgram.postMessage({data:'http://www.baidu.com'})
-          wx.miniProgram.reLaunch({
-            url:'/pages/index1/index1?type=1'
+          wx.miniProgram.navigateTo({
+            url:'/pages/index1/index1?url=http://www.baidu.com'
           });
       }
     }

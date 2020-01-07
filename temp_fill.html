@@ -13,8 +13,9 @@
       alert(param);
       wx.miniProgram.postMessage({ data: 'foo' })
       wx.miniProgram.navigateBack({
-        url:'../newView/newView?carInfo='+JSON.stringify({ data: 'foo' })
+        delta: 1
       })
+      
     }
     let smallPro = false;
     wx.miniProgram.getEnv(function(res) {
